@@ -1,0 +1,689 @@
+@import "bourbon"
+@import "fonts.sass"
+@import "vars.sass"
+
+//Load Libs SASS
+@import "app/libs/animate/animate.sass"
+@keyframes phone-shake
+  0%,25%,45%,65%,85%
+    transform: rotate(10deg)
+  15%,35%,55%,75%,95%,100%    
+    transform: rotate(-10deg)
+  
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+//Custom Styles Here
+ul
+    padding: 0
+    margin: 0
+    list-style: none
+body
+    background: #66ad2b 
+    font-family: 'Open Sans'
+.inner
+    max-width: 1200px
+    margin: 0 auto
+.top__menu
+    padding-left: 26px
+    ul
+        border-bottom: 2px solid #eaeaea
+    li
+        display: inline-block
+        padding-right: 25px
+        margin-left: 9px
+        a
+            font-weight: 300
+            font-size: 11px
+            color: #0b0b0b
+            padding: 12px 8px
+            display: block
+            transition: .2s all
+            &:hover
+                text-decoration: none
+                background: #eefd00
+.header__top
+    padding-top: 15px
+.logo
+    font-size: 48px
+    color: #171717
+    font-weight: bold
+    letter-spacing: -4px 
+    &:hover
+        color: #171717
+        text-decoration: none
+.location
+    font-size: 12px
+    color: #171717
+    text-decoration: underline
+    margin-top: 25px
+.phone
+    font-size: 10px
+    font-weight: 300
+    background-repeat: no-repeat
+    background-position: 0px center
+    padding-left: 49px
+    margin-right: 32px
+    margin-top: 4px
+    a
+        display: block
+        font-size: 18px
+        color: inherit
+        font-weight: bold
+    i
+        margin-right: 13px
+        margin-top: 10px
+        width: 35px
+        height: 35px
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU1OUZDMDgxMTUxNTExRTZBMjFDQ0Y5MTJDNDU5Nzk3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU1OUZDMDgyMTUxNTExRTZBMjFDQ0Y5MTJDNDU5Nzk3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTU5RkMwN0YxNTE1MTFFNkEyMUNDRjkxMkM0NTk3OTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTU5RkMwODAxNTE1MTFFNkEyMUNDRjkxMkM0NTk3OTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6+JIz2AAACNElEQVR42sSXSyhFQRjHRUKSPFdsFAuJUKRY6N4oeaRYSFigZGFhQRYs2NnqkgXJSrFQHiGv8kjYEvKOBSlKycbjf25zakxz7szcOef46rc58zi/c+bMN98JC7EnYsAxqAIp4B08hfxT5IAfhkPQCkLdlskF5xwhg0vQrPOUI2AQhCuOTQctYJkjtQCSVSarZiY4BXFBPlQWmGbmewFFMoOrLF7zNUjSWMJSzhKWBxpQayFicq8pZCz3LDMn9w1lC0RM7kCixc3qwBnwAU8AKR813ydIYDusSMoY3IJYzk0mmX47ZHl4McNs/z/xqiBjMM65QT9JcmzffguhS6pPG93wqShzbHGDSLJcW0z/MU7fDKr9g4z1x4OiTL3EB9sp8Ybo76fXvLiqIDKgsIPKmLE5THs0+Kbyjz96HBAxo50af8Jpn6La/R98qoRIt0aOOaDmKWHaSngbY08gE6ch46XmmeckQ7Pty7xYIZBZ1DzV6bOODWO3LYEh+uKNQMijIVMMClVO7WqBjJEco9wsko4EQrtuyqRJ7KxpN4X6JIRG3RTalhCakJjHQxLbMIgIViaKpGiR0IpFScFmX4OLAPWQMDIlj4lHUMmMbQ1QoCXZkT1FzJEHaHCyhK1RLDFkS9j4YIUqHBC6Ir/FQUWBRWmpw4jOljfOlg0bZTbtyEMDNsl47UqMeZziW4VOJ7J1EykpVUQ6nD5CGsG+hEiXm+daPqna1sjP2ht4BuucTP0nfgUYALMd2JJOCTPJAAAAAElFTkSuQmCC)
+    span,i
+        display: inline-block
+        vertical-align: middle
+        margin-top: 5px
+    &:hover
+        i
+            animation: 1s phone-shake ease
+.star
+    margin-top: 25px
+    margin-left: 2px
+    width: 26px
+    height: 26px
+    background-repeat: no-repeat
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJEOUQ4QzMxMTUxNzExRTY4NjRFODA3MzdEMEM4NEYyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJEOUQ4QzMyMTUxNzExRTY4NjRFODA3MzdEMEM4NEYyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkQ5RDhDMkYxNTE3MTFFNjg2NEU4MDczN0QwQzg0RjIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkQ5RDhDMzAxNTE3MTFFNjg2NEU4MDczN0QwQzg0RjIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6HOeubAAACE0lEQVR42rSWSyhFURSGr2d5JeSZUhKFMpFSHnkNFIUhSYlkooxkIoMrAxkgM0bC1MBAigkTA0oeKZG8HzdvIsJ/tI5Wq7Vxj6z6uvfs9e+11157n72Pn8s7SwD+4Mn1j1YBXsA1KKO2LNAJ8v4a3A2qQB14F2yL5wAnAwQogX9iAkSCIG8GKnEwkMUD8IBR4MsD+ogBkkER6AaJwncOFsAaBc2gtUkwJJsCdjRHkSHLW9BsKEkgaACXSr8oU7m6FPGuMrN60CLaYthMbQaVin1aphA+gmhFZ/ulhYArJdFcKWwUokYlWC7zVyj+aqUqM1zQJpxXoizpIB8sMs0KKKBNEcvKdGxKOF7JYpJ87V5sbTf1GWZtF/Yg1l6/pyy4rdLvLNj8xXtnbeMp+r/B2oNpm39ZEm1jO5MOEWgEPCuzsM6+caFtFZpTOjG+bJc5x5SsPcpAj4puUNGl2c5K8MYcHtE5+5u1KRXafeHv4c5xJUAt8/ez9j7qbD+PMl25iNEpp5sDDoToDoSyRKwFLxbv1BaYpmc/2mU8RrbLcG4NCOH6d2cWszCwpFSlz9QhUBGfGU4B26zb9tCwfjWmayIOnBgC7oE5KpcVJJVKmSJ0N7SG82DZlJ0vLa71Er86vPxqvblhI+hCG3MwULjTDxQe5EgJ3EazGPrrl1Ah6KUb2J/elQcapMn1zxZLm+HX9iHAAPcyE4//7X7jAAAAAElFTkSuQmCC)
+.header__cart
+    min-height: 31px
+    background-repeat: no-repeat
+    padding-left: 45px
+    background-position: 0px center
+    color:  #171717
+    font-size: 10px
+    font-weight: 300
+    line-height: 30px
+    margin-top: 15px
+    display: block
+    margin-right: 10px
+    transition: .5s all
+    &:hover
+        text-decoration: none
+        color:  #171717
+        font-size: 11px
+        i
+            transform: rotate(-2deg) translateX(2px)
+    i
+        transform: translateX(-6px)
+        transition: .5s all
+        display: inline-block
+        vertical-align: middle
+        margin-right: 5px
+        margin-top: 6px
+        width: 33px
+        height: 31px
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAYAAABplKSyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBBQkNBMzgyMTUxODExRTZBNjY0ODJFQTAwMDU0RTUxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBBQkNBMzgzMTUxODExRTZBNjY0ODJFQTAwMDU0RTUxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEFCQ0EzODAxNTE4MTFFNkE2NjQ4MkVBMDAwNTRFNTEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEFCQ0EzODExNTE4MTFFNkE2NjQ4MkVBMDAwNTRFNTEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5WjncmAAAC+0lEQVR42sSXSWgUQRSGa9oRPSiIQQdXXCMSlKiJHtRowGVUFJfkMOaQg+YQFTwqqEQFvQiKCC54cU+iggRRY4zigqBkEILRg4oLouOgicYlHpLJ+Bf8DY9iumd6Nh98VNVfNd2vqt6r6lFKqRbQJfgOIuC4yqPFQNyB8flwwA8CYAbb+sU+0ABGghXglPpPdoYONeTjZT4HvQpcAFFwCRSDwaA/i+/VsXdVT9jJCb1FX/K06jU+l86HYCHoBY2gk3ESYn8TeA8srtAksJp95zhTu28mKAd94ASTYT4oBb/cPNzBuDAHdVOvNvQikVWm7aIeFlqlPd5yceIOyyGgROjXWYaM8YNEfYDRt4Zls9CWswz7XZx4Br6CEeA82/aMtS02sme0qOut+i2CcA7rQTCF2iqx7a520eUgyxbr/EmcaAUbWb/HINVLvYTac/CZM9MrNov6I/CXL5kIChmgrdRGMVi1PU62EmOEx8uE3k5tt9BKxNiBQj9JrUVo+6npSSgriROfwEvWa4V+i+VKocUd6vaq3RDaerFiyp/CYXIF1DGQbnJZJ7BvntACRmb9YcZMpqZTeilXqSjVrbCtNIdBOc7t7pBmMVWHcw/DXMEQyzbwggG4SKToDzCbN3QPuMaTcgFP1w5xe6dk9fS8SWjN1I6xPTXBiXma7ctCe0rtsNdLJsgf6plM4+rspRZh2pYLJwLUPrJdx+cUizGVXhzQp91tYy+j3CLZ7jTaUdH+xvNEPmOYFwdyEZCbzM87NzvKUs/6CG9Un0rPLAboA/DKy9fPT3q+Odcfuk4WZ5oNBRt4sHSn8RkXy/QrbZuxl738Ournw/tEW46z+2LkHdiZiSMHshiQBzNxpJCXTZxLq6P7kHj4PlDB3Nfla+odvDMaxdiCTBy5z4ecFZq9DWXG2DfUt7BdIJyY6yUwTfvAUt+mW8F0ka49xtgu3p7b6WjQcDBtG+uwz/UJxpY5jN2TjZTW1/pdpmokySW0FjzhAfeWfyES2j8BBgDSzkPJGw8ZMwAAAABJRU5ErkJggg==)
+.header__img
+    padding-top: 10px
+    img
+        width: 103.5%
+        margin-top: -12px
+.middle__menu
+    padding-top: 20px
+    .col-lg-12 > ul
+        border-radius: 10px
+        background-color: #f7fff4
+        background: linear-gradient(0deg, darken(rgb(247, 255, 244),20%) 0%, rgb(247, 255, 244) 100%)
+        box-shadow: 0px 1px 4.9px 0.1px rgba(0, 0, 0, 0.5)
+        height: 59px
+        width: 103.5%
+        margin-top: -2px
+        li
+            display: inline-block
+            height: 100%
+            a
+                font-family: OpenSans
+                color:  #1a1a1a
+                font-size: 13px
+                font-weight: 300
+                line-height: 12px
+                text-align: left
+        .first
+            border-bottom-left-radius: 10px
+            border-top-left-radius: 10px
+            background-color: #eefd00
+            background: linear-gradient(220deg, rgb(238, 253, 0) 28%, lighten(rgb(238, 253, 0),10%) 72%)
+            box-shadow: 0px 1px 4.9px 0.1px rgba(0, 0, 0, 0.5)
+            height: 100%
+            width: 260px
+            position: relative
+            img
+                position: absolute
+                left: 16px
+                bottom: 14px
+    .col-lg-12 > ul > li li
+        display: inline-block
+        vertical-align: middle
+        height: 100%
+        width: 108px
+        position: relative
+        &:first-child
+            &:after
+                content: ""
+                background-color:  #2f2f2f
+                width: 1px
+                height: 40px
+                position: absolute
+                left: 110px
+                bottom: 9px
+        a
+            text-align: center
+            display: block
+            font-size: 15px
+            font-weight: 400
+            color: #191919
+            padding: 5px 0 10px
+            margin-top: 8px
+            margin-left: 32px
+            list-style: none
+            &:hover
+                text-decoration: none
+            span
+                font-family: OpenSans
+                color:  #101010
+                font-size: 12px
+                font-weight: 300
+                line-height: 12px
+                text-align: center
+                margin-left: 15px
+
+ .search
+    margin-left: 40px
+    &:hover
+        img
+            transform: rotate(-45deg)
+            transition: .6s all
+    
+        
+.akcii
+    padding-top: 8px
+    padding-left: 10px
+        
+            
+.middle__slider
+    margin-bottom: 100px
+            
+.slider_container
+    position: relative
+    margin-top: 6px
+    width: 100%
+.slide_item
+    background: url(../img/slide.png) 
+    width: 100%
+    height: 272px
+    h1
+        font-family: OpenSans
+        color:  #1a1a1a
+        font-size: 34px
+        padding-top: 28px
+        font-weight: 700
+        line-height: 13px
+        text-align: center
+    h2
+        font-family: OpenSans
+        color:  #161616
+        font-size: 36px
+        font-weight: 700
+        line-height: 13px
+        text-align: center
+        padding: 40px
+        width: 40%
+        margin-left: 258px
+        border: 3px dashed red
+        margin-top: 39px
+    p
+        font-family: OpenSans
+        color:  #1a1a1a
+        font-size: 14px
+        font-weight: 600
+        line-height: 13px
+        margin-top: 58px
+        margin-left: 261px
+
+.next_button,
+.prev_button 
+    color: #fff
+    font-size: 46px
+    position: absolute
+    z-index: 10
+    cursor: pointer
+    top: 41%
+    
+.prev_button
+    left: 15px
+.next_button
+    left: 780px
+    
+.owl-page
+    border-radius: 50%
+    background-color:  #c6c6c6
+    width: 10px
+    height: 10px
+    margin-right: 10px
+    
+.active
+    background-color:  #3c3c3c
+
+.owl-pagination 
+    display: inline-flex
+    margin-left: 43%
+    padding-top: 15px
+
+    
+.middle__doors
+    .inner
+        max-width: 1200px
+        margin: 0 auto
+        div
+            display: inline-block
+            h1
+                text-align: center
+                font-family: OpenSans
+                color:  #1b1b1b
+                font-size: 20px
+                font-weight: 700
+                line-height: 12px
+                padding-top: 10px
+        
+.middle__doors      
+.ld
+    display: inline-flex
+    div
+        padding-left: 50px
+        position: relative
+        width: 155px
+        img
+            margin-bottom: 12px
+        p
+            text-align: center
+            margin-top: 0px
+            a
+                font-family: OpenSans
+                color:  #000000
+                font-size: 11px
+                font-weight: 400
+                text-decoration: underline
+        h5
+            font-family: OpenSans
+            color:  #171616
+            font-size: 14px
+            font-weight: 600
+            text-align: center
+
+h6
+    font-family: OpenSans
+    color:  rgba(255, 255, 255, 0.55)
+    font-size: 9px
+    font-weight: 300
+    line-height: 14px
+    text-align: center
+    background-color:  #c62e23
+    box-shadow: 0px 4px 11.04px 0.96px rgba(0, 0, 0, 0.5)
+    width: 100px
+    height: 15px
+    position: absolute
+    bottom: 70px
+    left: 65px
+            
+.cena
+    font-family: OpenSans
+    color:  #da2222
+    font-size: 14px
+    font-weight: 700
+    text-align: center
+    
+.left_doors
+    border-radius: 10px
+    background-color:  rgba(255, 255, 255, 0.55)
+    width: 550px
+    height: 540px
+    margin-right: 115px
+
+.right_doors
+    border-radius: 10px
+    background-color:  rgba(255, 255, 255, 0.55)
+    width: 500px
+    height: 540px
+    h1
+        font-family: OpenSans
+        color:  #1b1b1b
+        font-size: 20px
+        font-weight: 700
+        line-height: 12px
+        text-align: center
+        text-indent: 5px
+        width: 500px
+.right_doors
+    .lr
+        div
+            padding-left: 60px
+            position: relative
+            width: 215px
+            img
+                margin-bottom: 12px
+                text-align: center
+                margin-left: 13px
+            p
+                text-align: center
+                margin-top: 0px
+                a
+                    font-family: OpenSans
+                    color:  #000000
+                    font-size: 11px
+                    font-weight: 400
+                    text-decoration: underline
+            h5
+                font-family: OpenSans
+                color:  #171616
+                font-size: 14px
+                font-weight: 600
+                text-align: center
+h5
+    span
+        font-family: OpenSans
+        color:  #da2222
+        font-size: 14px
+        font-weight: 700
+        text-align: left
+        
+.reload1
+    width: 100%
+    height: 100px
+    img
+        display: block
+        margin-left: 45%
+        margin-top: -10px
+        margin-bottom: 15px
+        &:hover
+            transform: rotate(-360deg)
+            transition: 1s all
+    button
+        margin-left: 27%
+        border-radius: 5px
+        background-color:  #eaeaea
+        border: 0
+        width: 242px
+        height: 33px
+        &:hover
+            background-color: rgba(0, 0, 0, 0.6)
+            color: #fff
+            transition: .4s all
+        
+.reload2
+    width: 100%
+    height: 100px
+    img
+        display: block
+        margin-left: 45%
+        margin-top: -10px
+        margin-bottom: 15px
+        &:hover
+            transform: rotate(-360deg)
+            transition: 1s all
+    button
+        margin-left: 25%
+        border-radius: 5px
+        background-color:  #eaeaea
+        border: 0
+        width: 242px
+        height: 33px
+        &:hover
+            background-color: rgba(0, 0, 0, 0.6)
+            color: #fff
+            transition: .4s all
+
+.mid__doors
+    margin-top: 40px
+            
+.mid_l_doors
+    width: 500px
+    background: url(../img/tolko.png)
+    margin-right: 115px
+    background-repeat: no-repeat
+    background-size: cover
+    border-radius: 10px
+    display: inline-block
+    h1
+        font-family: OpenSans
+        color:  #191919
+        font-size: 20px
+        font-weight: 600
+        text-align: center
+        padding-bottom: 30px
+    img
+        margin-left: 145px
+        padding-bottom: 15px
+    p
+        font-family: OpenSans
+        color:  #191919
+        font-size: 35px
+        font-weight: 700
+        text-decoration: underline
+        text-align: center
+        span
+            font-family: OpenSans
+            color:  #191919
+            font-size: 17px
+            font-weight: 400
+            text-align: center
+    
+.mid_r_doors
+    width: 550px
+    height: 527px
+    background: url(../img/help.png)
+    background-repeat: no-repeat
+    background-size: cover
+    border-radius: 10px
+    display: inline-block
+    h1
+        font-family: OpenSans
+        color:  #191919
+        font-size: 20px
+        font-weight: 600
+        text-align: center
+        padding-bottom: 40px
+    p
+        font-family: OpenSans
+        color:  #191919
+        font-size: 40px
+        font-weight: 700
+        text-align: center
+    h2
+        font-family: OpenSans
+        color:  #191919
+        font-size: 18px
+        font-weight: 300
+        text-align: center
+        margin-bottom: 83px
+    .but1
+        margin-bottom: 12px
+        border-radius: 5px
+        border: 0
+        background-color:  #eefd00
+        box-shadow: 1px 1px 4.9px 0.1px #000000
+        width: 206px
+        height: 35px
+        margin-left: 175px
+        &:hover
+            background-color: #000
+            color: #eefd00
+            transition: .6s all
+    .but2
+        border-radius: 5px
+        background-color:  #eefd00
+        box-shadow: 1px 1px 4.9px 0.1px #000000
+        width: 188px
+        height: 35px
+        border: 0
+        margin-left: 185px
+        &:hover
+            background-color: #000
+            color: #eefd00
+            transition: .6s all
+            
+.mid__but
+    button
+        border-radius: 10px
+        background-color:  #eaeaea
+        box-shadow: 0px 1px 4.9px 0.1px rgba(0, 0, 0, 0.5)
+        height: 53px
+        width: 100%
+        border: 0
+        margin-top: 40px
+        font-family: OpenSans
+        color:  #1e1e1e
+        font-size: 17px
+        font-weight: 400
+        line-height: 12px
+        &:hover
+            background-color: #000
+            color: #eefd00
+            transition: .6s all
+        
+.mid__clasic
+    padding-left: 60px
+    padding-top: 40px
+    padding-bottom: 40px
+    p
+        display: inline-block
+        text-align: center
+        font-family: OpenSans
+        color:  #131313
+        font-size: 14px
+        font-weight: 300
+        margin-right: 50px
+        span
+            display: block
+            font-family: OpenSans
+            color:  #131313
+            font-size: 30px
+            font-weight: 700
+
+.mid_img
+    padding-left: 80px
+    
+.mid_block
+    padding: 15px
+    border: 3px solid #eaeaea
+    border-radius: 15px
+    height: 400px
+    img
+        padding-right: 83px
+        padding-top: 25px
+    h1
+            font-family: OpenSans
+            color: #1d1d1d
+            font-size: 23px
+            font-weight: 700
+            text-align: center
+            line-height: 18px
+    
+.opis
+    padding-left: 43px
+    div
+        width: 201px
+        display: inline-block
+        text-align: center
+        margin-top: 35px
+        margin-right: 80px
+        line-height: 20px
+        vertical-align: top
+        &:last-child
+            margin-right: 0
+        h1
+            font-family: OpenSans
+            color:  #000000
+            font-size: 18px
+            font-weight: 700
+        p
+            font-family: OpenSans
+            color:  #000000
+            font-size: 14px
+            font-weight: 300
+        
+            
+.footer
+    padding-top: 50px
+    a
+        font-family: OpenSans
+        color:  #1d1d1d
+        font-size: 11px
+        font-weight: 700
+        line-height: 25px
+        text-align: left
+        display: block
+    button
+        border-radius: 5px
+        background-color:  #eefd00
+        box-shadow: 0px 1px 4.9px 0.1px rgba(0, 0, 0, 0.5)
+        width: 153px
+        height: 37px
+        border: 0
+        &:hover
+            background-color: #000
+            color: #eefd00
+            transition: .6s all
+    
+.location_mid
+    p
+        width: 160px
+        display: inline-block
+        font-family: OpenSans
+        color:  #161616
+        font-size: 13px
+        font-weight: 400
+        line-height: 14px
+        text-align: left
+        span
+            font-family: OpenSans
+            color:  #363636
+            font-size: 13px
+            font-weight: 400
+            line-height: 14px
+            text-decoration: underline
+            text-align: left
+    img
+        vertical-align: top
+        margin-top: 15px
+        padding-right: 20px
+ 
+.foo_nav
+    height: 304px
+    background-color:  #6bb130
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0) 100%)
+    padding: 15px
+    div
+        &:last-child
+            vertical-align: top
+        h1
+            margin-top: 0
+            margin-bottom: 0
+        
+    //ALWAYS END
+@import "media"

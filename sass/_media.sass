@@ -14,7 +14,106 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
-	
+	.top__menu
+		padding-left: 0px
+		transition: .4s all
+		ul
+			overflow: hidden
+			transition: .4s all
+			height: 0px
+			&.active_menu
+				height: auto
+				overflow: visible
+				transition: .4s all
+			li
+				width: 100%
+				display: block
+				text-align: center
+			a
+				text-align: center
+	.middle__menu
+		.col-lg-12
+			ul
+				width: 100%
+				height: auto
+				li
+					display: block
+					width: 100%
+					text-align: center
+				a
+					text-align: center
+		.first_li1
+			margin: 0
+		.col-lg-12 > ul .first
+			width: 100%
+			margin: 0
+			border-bottom-left-radius: 0
+			border-top-right-radius: 10px
+			img
+				left: 4px
+				bottom: 8px
+			a
+				margin: 0
+		.col-lg-12 > ul > li li
+			&:first-child
+				&:after
+					bottom: 4px
+		.search
+			margin-left: 350px
+
+	.left_doors
+		margin: 0 auto
+		margin-bottom: 10px
+		margin-left: 85px
+	.right_doors
+		margin: 0 auto
+		margin-bottom: 10px
+		margin-left: 110px
+	.mid_l_doors
+		margin-bottom: 10px
+		margin-left: 110px
+		margin-right: 0
+	.mid_r_doors
+		margin-left: 85px
+	.mid__but
+		button
+			margin-left: 160px
+	.mid__clasic
+		p
+			margin-right: 30px
+	.mid__compl
+		height: 500px
+	.mid_block
+		height: 525px
+	.location_mid
+		display: inline-flex
+		clear: both
+		margin-left: 70px
+	.phone
+		float: none
+	.slider_container
+		width: 100%
+	.slide_item
+		width: 100%
+		background-size: cover
+		border-top-right-radius: 10px
+		h1
+			font-size: 34px
+		h2
+			width: 47%
+			margin-left: 180px
+		p
+			margin-left: 170px
+	.owl-item
+		width: 50%
+	.next_button
+		left: 657px
+	.header__img
+		img
+			width: 100%
+	.owl-pagination
+		margin-left: 44%
+
 	/*Disable Animation on Mobile Devices*/
 	.animated
 		/*CSS transitions*/

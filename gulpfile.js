@@ -5,7 +5,10 @@ var gulp         = require('gulp'),
 		rename       = require('gulp-rename'),
 		browserSync  = require('browser-sync').create(),
 		concat       = require('gulp-concat'),
-		uglify       = require('gulp-uglify');
+		uglify       = require('gulp-uglify'),
+		imagemin     = require('gulp-imagemin'),
+		cache 		 = require('gulp-cache'),
+		pngquant     = require('imagemin-pngquant');
 
 gulp.task('browser-sync', ['styles', 'scripts'], function() {
 		browserSync.init({
@@ -39,6 +42,17 @@ gulp.task('scripts', function() {
 		.pipe(concat('libs.js'))
 		// .pipe(uglify()) //Minify libs.js
 		.pipe(gulp.dest('./app/js/'));
+});
+
+gulp.task('img', function() {
+	return gulp.src('app/img/**/*')
+		.pipe(cache(imagemin({
+			interlaced: true,
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngquant()]
+		})))
+		.pipe(gulp.dest('app/img'));
 });
 
 gulp.task('watch', function () {
